@@ -1,0 +1,39 @@
+:root {
+  /* Colors */
+  --bg-color: #ffffe3;
+  --text-color: #adad00;
+  --card-bg: #ffffff;
+  --primary-color: #000000;
+  --secondary-color: #a8a800;
+  --button-hover-bg: #5c4033;
+  --border-color:rgb(44, 41, 41);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.842);
+  --shadow-lg: 0 10px 15px rgb(46, 42, 42);
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2.5rem;
+  --spacing-xl: 2rem;
+
+  /* Sizing */
+  --border-radius: 8px;
+  --icon-size: 26px;
+  --gap: 30px;
+
+
+  color-scheme: light dark;
+}
+
+html[data-theme="dark"] {
+  --bg-color: #5c4033;
+  --text-color: #f5e8d8;
+  --card-bg: #504040;
+  --secondary-color: #f5e8d8;
+  --button-hover-bg: #ffffe3;
+}
+
