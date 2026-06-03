@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adejoke Restaurant</title>
+    <script>
+      (function () {
+        try {
+          var savedTheme = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = savedTheme || (prefersDark ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (error) {}
+      })();
+    </script>
 
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/components.css">
@@ -15,7 +25,9 @@
 <header class="header">
     <nav class="navbar">
         <div class="nav-container">
-    <div class="logo">Adejoke Restaurant</div>
+    <a class="logo" href="#home" aria-label="Adejoke Restaurant home">
+        <img class="logo-image" src="assets/images/logo.png" alt="Adejoke Restaurant">
+    </a>
 
     <ul class="menu">
         <li><a href="#home">Home</a></li>

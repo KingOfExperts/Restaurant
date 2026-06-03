@@ -18,16 +18,30 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0.75rem 1rem;
-  height: 100px;
+  height: 120px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
 }
 
 .logo {
-  font-size: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px;
+  text-decoration: none;
+  color: var(--text-color);
   font-weight: 700;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.45));
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(156, 94, 94, 0.12);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .nav-actions {
@@ -46,6 +60,19 @@
   gap: 1.5rem;
 }
 
+.logo-image {
+  display: block;
+  width: 96px;
+  height: 96px;
+  max-width: none;
+  object-fit: contain;
+}
+
+.logo:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
+}
+
 .menu a {
   font-weight: 500;
   color: var(--text-color);
@@ -58,11 +85,17 @@
 /* Mobile menu toggle button */
 .menu-toggle {
   display: none;
+  position: relative;
   background: none;
   border: none;
   font-size: 1.8rem;
   cursor: pointer;
   color: black;
+}
+
+.menu-toggle::before {
+  content: "\2630";
+  display: block;
 }
 
 /* =========================
@@ -223,24 +256,89 @@ html[data-theme="dark"] #theme-toggle .moon {
 ========================= */
 
 @media (max-width: 768px) {
+  .logo-image {
+    width: 76px;
+    height: 76px;
+  }
+
   .menu {
     position: absolute;
-    top: 100px;
-    left: 76%;
-    right: 0;
+    top: calc(100% + 12px);
+    left: 1rem;
+    right: 1rem;
 
     flex-direction: column;
-    background-color: var(--card-bg);
-    padding: 1rem;
-    display: none;
+    gap: 0.25rem;
+    padding: 0.9rem;
+    border-radius: 18px;
+    background: var(--card-bg);
+    border: 1px solid rgba(156, 94, 94, 0.14);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px) scale(0.98);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    z-index: 1001;
   }
 
   .menu.active {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
   }
 
   .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    background: transparent;
+    border: 0;
+    border-left: 2px solid rgba(156, 94, 94, 0.85);
+    border-right: 2px solid rgba(156, 94, 94, 0.85);
+    border-radius: 12px;
+    box-shadow: none;
+    font-size: 0;
+    color: var(--primary-color);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    z-index: 1002;
+  }
+
+  .menu-toggle::before {
+    font-size: 1.55rem;
+    line-height: 1;
+  }
+
+  .menu-toggle:hover {
+    transform: translateY(-1px);
+    opacity: 0.88;
+  }
+
+  .menu-toggle:focus-visible {
+    outline: 3px solid rgba(156, 94, 94, 0.28);
+    outline-offset: 3px;
+  }
+
+  .menu li {
+    width: 100%;
+  }
+
+  .menu a {
     display: block;
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+  }
+
+  .menu a:hover,
+  .menu a:focus-visible {
+    background: rgba(156, 94, 94, 0.08);
+    opacity: 1;
   }
 }
 
@@ -376,10 +474,10 @@ html[data-theme="dark"] #theme-toggle .moon {
       font-size: 1.1rem;
     }
 
-    .whatsapp-float{
+.whatsapp-float{
   position:fixed;
-  bottom:13px;
-  right:10px;
+  bottom:8px;
+  right:12px;
   background:transparent;
   color:#001a00;
   width:50px;
@@ -388,8 +486,14 @@ html[data-theme="dark"] #theme-toggle .moon {
   display:grid;
   place-items:center;
   font-size:26px;
-  box-shadow:0 10px 30px rgba(0,0,0,.4);
+  box-shadow:0 10px 24px rgba(0,0,0,.28), 0 0 18px rgba(37, 211, 102, .45);
   z-index:100;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.whatsapp-float:hover {
+  box-shadow:0 12px 28px rgba(0,0,0,.32), 0 0 24px rgba(37, 211, 102, .6);
+  transform: translateY(-1px);
 }
 .socials img{
    position: absolute;
@@ -405,8 +509,8 @@ html[data-theme="dark"] #theme-toggle .moon {
         width: 50px;  /* Reduced width for mobile */
         height: 50px; /* Reduced height for mobile */
         font-size: 20px; /* Reduced icon size for mobile */
-        bottom: 65px; /* Adjust bottom position if needed */
-        right: 5px; /* Adjust right position if needed */
+        bottom: 16px; /* Keep it comfortably near the bottom edge */
+        right: 8px; /* Keep a little breathing room on small screens */
     }
 }
 
@@ -449,6 +553,12 @@ html[data-theme="dark"] #theme-toggle .moon {
     opacity: 0;
     transform: translateX(-20px);
     animation: fadeInLeft 0.8s ease-out 0.5s forwards;
+}
+
+.logo-image {
+    opacity: 0;
+    transform: scale(0.95);
+    animation: fadeInUp 0.8s ease-out 0.35s forwards;
 }
 
 .theme {

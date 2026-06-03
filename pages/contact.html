@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adejoke Restaurant</title>
+    <script>
+      (function () {
+        try {
+          var savedTheme = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = savedTheme || (prefersDark ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (error) {}
+      })();
+    </script>
 
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/components.css">
@@ -15,7 +25,9 @@
 <header class="header">
     <nav class="navbar">
         <div class="nav-container">
-    <div class="logo">Adejoke Restaurant</div>
+    <a class="logo" href="../index.html" aria-label="Adejoke Restaurant home">
+        <img class="logo-image" src="../assets/images/logo.png" alt="Adejoke Restaurant">
+    </a>
 
     <ul class="menu">
         <li><a href="../index.html">Home</a></li>
@@ -86,6 +98,28 @@
 
                         <button type="submit" class="btn btn-primary" style="width: 100%; margin-top:15px;">Send Message</button>
                     </form>
+                    
+                    <!-- Centered container for the box -->
+<div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 20px 0;">
+
+  <!-- The clickable box container -->
+  <a href="YOUR_GOOGLE_MAPS_LINK_HERE" target="_blank" style="display: inline-block; text-decoration: none;">
+    <div style="border: 2px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      
+      <!-- The map image -->
+      <img src="YOUR_MAP_IMAGE_URL_HERE" alt="View Location on Google Maps" style="width: 100%; height: 200px; object-fit: cover; display: block;">
+      
+      <!-- Label below the map image -->
+      <div style="padding: 10px; background-color: #ffffff; text-align: center; color: #333; font-family: sans-serif; font-weight: bold;">
+        📍 Click to View Map
+      </div>
+      
+    </div>
+  </a>
+
+</div>
+
+
                 </div>
             </div>
     </section>
