@@ -29,16 +29,16 @@
 .logo {
   display: inline-flex;
   align-items: center;
-  padding: 10px;
+  padding: 6px 12px;
   text-decoration: none;
   color: var(--text-color);
   font-weight: 700;
   letter-spacing: 0.02em;
   flex-shrink: 0;
-  border-radius: 18px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.45));
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(156, 94, 94, 0.12);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(156, 94, 94, 0.10);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -62,15 +62,15 @@
 
 .logo-image {
   display: block;
-  width: 96px;
-  height: 96px;
+  width: 84px;
+  height: 84px;
   max-width: none;
   object-fit: contain;
 }
 
 .logo:hover {
   transform: translateY(-1px);
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
 }
 
 .menu a {
@@ -261,6 +261,12 @@ html[data-theme="dark"] #theme-toggle .moon {
     height: 76px;
   }
 
+  .story-image {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+  }
+
   .menu {
     position: absolute;
     top: calc(100% + 12px);
@@ -339,6 +345,12 @@ html[data-theme="dark"] #theme-toggle .moon {
   .menu a:focus-visible {
     background: rgba(156, 94, 94, 0.08);
     opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .story-image {
+    height: 220px;
   }
 }
 
